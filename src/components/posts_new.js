@@ -6,7 +6,6 @@ import {createPost} from '../actions/index'
 
 class PostsNew extends Component {
     renderField(field) {
-        console.log(field);
         const className= `form-group ${field.meta.touched && field.meta.error ? 'has-danger': ''}`
         return(
             <div className={className}>
@@ -24,13 +23,13 @@ class PostsNew extends Component {
     }
 
     onSubmit(values) {
-        console.log(this.props);
         this.props.createPost(values, () => {
             this.props.history.push('/');
         });
     }
 
     render() {
+        console.log(this.props);
         const {handleSubmit} = this.props;
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}> 

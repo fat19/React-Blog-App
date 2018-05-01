@@ -13,12 +13,15 @@ class PostsIndex extends Component {
         return _.map(this.props.posts, post => {
             return (
                 <li className="list-group-item" key={post.id}>
-                    {post.title}
+                    <Link to={`posts/${post.id}`}> 
+                        {post.title}
+                    </Link>
                 </li>
             );
         })
     }
     render () {
+        console.log(this.props);
         return (
             <div>
                 <div className="text-xs-right">
@@ -36,6 +39,7 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state);
     return {posts: state.posts}
 }
 
